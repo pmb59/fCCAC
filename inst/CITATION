@@ -1,0 +1,9 @@
+citEntry(entry="article",
+         title = "fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets",
+         author = personList(as.person("Pedro Madrigal")),
+         year = "2016",
+         journal = "bioRxiv",
+         doi = "10.1101/060780",
+         url = "http://biorxiv.org/content/early/2016/06/27/060780",
+         textVersion = 
+         paste("Pedro Madrigal (2016):", "fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets.", "bioRxiv" ) )

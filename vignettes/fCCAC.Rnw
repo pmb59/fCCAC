@@ -1,0 +1,139 @@
+%\VignetteIndexEntry{fCCAC Vignette }
+%\VignetteDepends{}
+%\VignetteKeywords{Visualization,ChIPseq,Transcription,Genetics}
+%\VignettePackage{fCCAC}
+\documentclass{article}
+
+
+<<style, eval=TRUE, echo=FALSE, results=tex>>=
+BiocStyle::latex()
+@
+
+
+\begin{document}
+
+\title{\Biocpkg{fCCAC}: functional Canonical Correlation Analysis to evaluate Covariance between nucleic acid sequencing datasets}
+\date{Last Modified: September, 2016. Compiled: \today}
+%\author{Pedro Madrigal\footnote{pm12@sanger.ac.uk}}
+\author{Pedro Madrigal}
+
+
+\maketitle
+
+\begin{center}
+Wellcome Trust Sanger Institute, Cellular Genetics Programme, Hinxton, Cambridge, UK\\
+University of Cambridge, WT MRC Stem Cell Institute, Department of Surgery, Cambridge, UK\\
+\end{center}
+
+
+\tableofcontents
+
+
+<<setup, echo=FALSE, results=hide>>=
+options(width=200)
+options(continue=" ")
+options(prompt="R> ")
+@
+
+ 
+
+\section{Introduction}
+Computational evaluation of variability across sequencing datasets is a crucial step in genomic science, as it allows both to evaluate the reproducibility across biological or technical replicates, and to compare different datasets to identify their potential correlations. fCCAC is an application of functional canonical correlation analysis to assess covariance of nucleic acid sequencing datasets such as chromatin immunoprecipitation followed by deep sequencing (ChIP-seq), ChIP-exo, etc. 
+Basic processing of this type of data can be performed using Bioconductor packages such as \Biocpkg{NarrowPeaks}, \Biocpkg{CSAR}, \Biocpkg{CexoR}, \Biocpkg{csaw}, \Biocpkg{ChIPseeker}, \Biocpkg{ChIPQC}, and others. Basic and advanced ChIP-seq workflows are available at the Bioconductor website: \href{https://www.bioconductor.org/help/workflows/sequencing/}{https://www.bioconductor.org/help/workflows/sequencing/} and \href{https://www.bioconductor.org/help/workflows/chipseqDB/}{https://www.bioconductor.org/help/workflows/chipseqDB/}. 
+Once regions of interest, such as peaks, exons, UTRs, etc. are obtained, bigwig data of the mapped reads are necessesary too for using \Biocpkg{fCCAC}, and can be obtained using \Biocpkg{rtracklayer}. \\
+
+Detailed information about the methodology can be found in Madrigal (2016).
+
+
+\section{Example}
+Data used in the example correspond to H3K4me3 triplicates (wild-type H9-hESCs) downloaded from ArrayExpress (E-ERAD-191) and processed as in (Bertero et al., 2015). Aggregate sets of reproducible peaks from Bertero et al. were considered as genomic regions of interest in the analysis.  Region 40000000-48129895 in chromosome 21 was selected for the illustrative example shown in this vignette.
+
+
+
+\begin{small}
+<<fCCACexample, fig=FALSE, include=TRUE, fig.width=1, fig.height=3>>=
+options(width=60);
+if (.Platform$OS.type == "windows") { print("...rtracklayer is unable to read bigWig format files in Windows...") }
+
+if (.Platform$OS.type == "unix") {
+
+
+## hg19. chr21:40000000-48129895 H3K4me3 data from Bertero et al. (2015)
+
+
+owd <- setwd(tempdir());
+
+
+library(fCCAC)
+
+bigwig1 <- "chr21_H3K4me3_1.bw"
+bigwig2 <- "chr21_H3K4me3_2.bw"
+bigwig3 <- "chr21_H3K4me3_3.bw"
+peakFile <- "chr21_merged_ACT_K4.bed"
+labels <- c( "H3K4me3", "H3K4me3","H3K4me3" )
+
+r1 <- system.file("extdata", bigwig1,  package="fCCAC",mustWork = TRUE)
+r2 <- system.file("extdata", bigwig2,  package="fCCAC",mustWork = TRUE)
+r3 <- system.file("extdata", bigwig3,  package="fCCAC",mustWork = TRUE)
+r4 <- system.file("extdata", peakFile, package="fCCAC",mustWork = TRUE)
+ti <- "H3K4me3 peaks (chr21)"
+
+fc <- fccac(bar=NULL, main=ti, peaks=r4, bigwigs=c(r1,r2,r3), labels=labels, splines=15, nbins=100, ncan=15)
+
+head(fc)
+
+setwd(owd)
+
+}
+
+@
+
+\end{small}
+
+As we can observe, the triplicates present very high values both in first squared canonical correlation (>0.99) and in their F values, which denotes high reproducibility of the experiment.\\
+
+Finally, if all pairwise comparisons have been computed ('tf=c()' by default), 
+we can plot a heatmap of F values:
+
+\begin{small}
+<<heatmapPlot, fig=FALSE, include=TRUE, fig.width=1, fig.height=1.5>>=
+options(width=60)
+if (.Platform$OS.type == "windows") { print("...rtracklayer is unable to read bigWig format files in Windows...") }
+
+if (.Platform$OS.type == "unix" ){ heatmapfCCAC(fc) }
+
+@ 
+
+\end{small}
+
+
+\textbf{Important notes}: 
+
+\begin{itemize}
+\item F is an overall measure of shared covariance. It is expected that good replicates will have F values close to 100 (such as in the example above).\\
+\item Because heavy smoothing is suggested for functional CCA (Ramsay and Silverman (2005); Ramsay et al. (2009)), a low number of splines (parameter splines) when compared to the total length of the genomic regions is recommended. The parameter 'nbins' can be low for narrow peaks (e.g., 50 for TFs and narrow chromatin marks) and increased for broad domain chromatin marks. The number of canonical correlations to compute (ncan) is limited by the number of splines used and the number of genomics regions to analyse. More information about data approximations used can be found in the Supplementary Information in Madrigal (2016).
+\end{itemize}
+
+
+\section{References}
+\begin{itemize}
+\item Madrigal P (2016) fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets. \textbf{bioRxiv}, 10.1101/060780. \href{http://biorxiv.org/content/early/2016/06/27/060780}{http://biorxiv.org/content/early/2016/06/27/060780}.
+\item Bailey TL, et al. (2013) Practical Guidelines for the Comprehensive Analysis of ChIP-seq Data. \textbf{PLoS Comput Biol} 9: e1003326. 
+\item Bertero A, et al. (2015) Activin/nodal signaling and NANOG orchestrate human embryonic stem cell fate decisions by controlling the H3K4me3 chromatin mark.  \textbf{Genes Dev.} 29: 702-17. 
+\item Ramsay JO, Silverman BW (2005) Functional Data Analysis. Springer Verlag, New York.
+\item Ramsay JO, et al. (2009) Functional Data Analysis with R and MATLAB. SpringerVerlag, New York.
+\end{itemize}
+
+\section{Details}
+
+This document was written using:
+
+\begin{small}
+<<sessionInfo>>=
+sessionInfo()
+@
+\end{small} 
+
+\end{document}
+
+
