@@ -117,7 +117,7 @@ if (.Platform$OS.type == "unix" ){ heatmapfCCAC(fc) }
 
 \section{References}
 \begin{itemize}
-\item Madrigal P (2016) fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets. \textbf{bioRxiv}, 10.1101/060780. \href{http://biorxiv.org/content/early/2016/06/27/060780}{http://biorxiv.org/content/early/2016/06/27/060780}.
+\item Madrigal P (2016) fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets. \textbf{Bioinformatics}, 10.1093/bioinformatics/btw724. \href{http://doi.org/10.1093/bioinformatics/btw724}{http://doi.org/10.1093/bioinformatics/btw724}.
 \item Bailey TL, et al. (2013) Practical Guidelines for the Comprehensive Analysis of ChIP-seq Data. \textbf{PLoS Comput Biol} 9: e1003326. 
 \item Bertero A, et al. (2015) Activin/nodal signaling and NANOG orchestrate human embryonic stem cell fate decisions by controlling the H3K4me3 chromatin mark.  \textbf{Genes Dev.} 29: 702-17. 
 \item Ramsay JO, Silverman BW (2005) Functional Data Analysis. Springer Verlag, New York.
