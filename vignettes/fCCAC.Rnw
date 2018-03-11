@@ -14,7 +14,7 @@ BiocStyle::latex()
 
 \title{\Biocpkg{fCCAC}: functional Canonical Correlation Analysis to evaluate Covariance between nucleic acid sequencing datasets}
 \date{Last Modified: September, 2016. Compiled: \today}
-%\author{Pedro Madrigal\footnote{pm12@sanger.ac.uk}}
+%\author{Pedro Madrigal\footnote{dnaseiseq@gmail.com}}
 \author{Pedro Madrigal}
 
 
