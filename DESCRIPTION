@@ -1,16 +1,16 @@
 Package: fCCAC
-Version: 1.7.0
+Version: 1.7.1
 Date: 2016-09-09
 Type: Package
 Title: functional Canonical Correlation Analysis to evaluate Covariance
         between nucleic acid sequencing datasets
-Author: Pedro Madrigal <dnaseiseq@gmail.com>
+Author: Pedro Madrigal <bioinformatics.engineer@gmail.com>
 Description: An application of functional canonical correlation
         analysis to assess covariance of nucleic acid sequencing
         datasets such as chromatin immunoprecipitation followed by deep
         sequencing (ChIP-seq).
 Depends: R (>= 3.3.0), S4Vectors, IRanges, GenomicRanges, grid
-Maintainer: Pedro Madrigal <pm12@sanger.ac.uk>
+Maintainer: Pedro Madrigal <bioinformatics.engineer@gmail.com>
 Imports: fda, RColorBrewer, genomation, ggplot2, ComplexHeatmap,
         grDevices, stats, utils
 Suggests: RUnit, BiocGenerics, BiocStyle
