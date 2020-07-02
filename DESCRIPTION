@@ -1,6 +1,6 @@
 Package: fCCAC
-Version: 1.15.0
-Date: 2018-08-02
+Version: 1.15.1
+Date: 2020-07-02
 Type: Package
 Title: functional Canonical Correlation Analysis to evaluate Covariance
         between nucleic acid sequencing datasets
@@ -9,8 +9,7 @@ Description: An application of functional canonical correlation
         analysis to assess covariance of nucleic acid sequencing
         datasets such as chromatin immunoprecipitation followed by deep
         sequencing (ChIP-seq). The package can be used as well with other types
-	of sequencing data such as neMeRIP-seq (PMID: 29489750) or with single cell
-	RNA-seq or epigenome data provided in bigWig format.
+	of sequencing data such as neMeRIP-seq (see PMID: 29489750).
 Depends: R (>= 3.3.0), S4Vectors, IRanges, GenomicRanges, grid
 Maintainer: Pedro Madrigal <bioinformatics.engineer@gmail.com>
 Imports: fda, RColorBrewer, genomation, ggplot2, ComplexHeatmap,
