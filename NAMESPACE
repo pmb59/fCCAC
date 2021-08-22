@@ -30,7 +30,7 @@ importFrom(ggplot2,ggplot)
 importFrom(ggplot2,geom_line)
 importFrom(ComplexHeatmap,Heatmap)
 
- importFrom("grDevices", "dev.off", "pdf")
- importFrom("stats", "reorder")
- importFrom("utils", "combn", "write.table")
+importFrom("grDevices", "dev.off", "pdf")
+importFrom("stats", "reorder")
+importFrom("utils", "combn", "write.table")
 
