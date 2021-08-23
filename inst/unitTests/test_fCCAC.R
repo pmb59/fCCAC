@@ -16,7 +16,7 @@ test_fCCAC <- function() {
 
 	fc <- fccac(bar=NULL, main="H3K4me3 peaks", peaks=r4, bigwigs=c(r1,r2,r3), labels=labels, splines=15, nbins=100, ncan=15, outFiles=FALSE) 
 
-    # check that if minimal input is not introduced the package recognizes an error situation
+	# check that if minimal input is not introduced the package recognizes an error situation
 	# peakFile
 	checkException( fccac(bar=NULL, main="H3K4me3 peaks", peaks=c(), bigwigs=c(r1,r2,r3), labels=labels, splines=15, nbins=100, ncan=15)  )
 	# bigwigs
