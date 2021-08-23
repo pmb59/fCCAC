@@ -1,5 +1,3 @@
-
-                 
 fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c(), main="", bar=NULL, outFiles=FALSE ){    
 		
 	#Read genomic regions in BED format with Bioconductor package genomation
@@ -11,27 +9,23 @@ fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c()
 	if (ncan <= splines | ncan <= length(peaks)){
 		
 		print("Starting fCCAC...")
-
-		SPLINES = splines   #
-		L = nbins           #bp
+		SPLINES <- splines   #
+		L <- nbins           #bp
 
 		#Modify labels to detect replicates (assume replicates are ordered 1,2,...)
 		d <- duplicated(labels)
-		new_labels <- rep("newLabel", length(labels) )       #c()
+		new_labels <- rep("newLabel", length(labels) ) 
 		for (l in seq(from=1, to=length(labels), by=1)  ) {
 			if (d[l] == FALSE) {  counter <- 1; new_labels[l]  <- paste(labels[l], 1, sep="_Rep") }
 			if (d[l] == TRUE)  {  counter <- counter +1;  new_labels[l]  <- paste(labels[l], counter, sep="_Rep")  } 	
-		
 		}
-	
 	
 		#Create B-spline basis system (cubic, order 4) of the signals before FDA:
 		bspl <- create.bspline.basis(rangeval=c(-L/2,L/2), nbasis=SPLINES, norder=4)   # Cubic B-splines
 		argvalsBS <- seq(from= (-L/2), to=(L/2), by=1)      #(-L/2):(L/2)
-
 		
 		#Read bigWig Files 
-		fdaData <- lapply(seq(from=1, to=length(bigwigs), by=1)  , function(x) matrix(NA, nrow=length(peaks) , ncol=L+1 ))      #list()
+		fdaData <- lapply(seq(from=1, to=length(bigwigs), by=1), function(x) matrix(NA, nrow=length(peaks) , ncol=L+1 ))      #list()
 
 		for (i in seq(from=1, to=length(bigwigs), by=1)   ) {
 			print(paste(c("Reading bigWig file...",i,"/",length(bigwigs)),collapse="")  )
@@ -39,16 +33,11 @@ fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c()
 			fdamatrix <- matrix(0.0, ncol=L+1, nrow= length(peaks) ) 
 			fdamatrix  <- ScoreMatrixBin(target = bigwigs[i], bin.num = L+1, windows = peaks, type="bigWig",rpm=FALSE, strand.aware = TRUE, bin.op="max" )
 			fdaData[[i]] <- Data2fd(y=t(fdamatrix), argvals= argvalsBS, basisobj=bspl) 			
-
 		}
 		rm(fdamatrix)
 		#length(fdaData)
 
-
-		
-
 		co <- combn(x=c(new_labels), m=2)  	# all possible pairwise combinations
-
 
 		# Select Sample of Interest (if any)
 				
@@ -63,8 +52,7 @@ fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c()
     			idx <- unique(col(co)[grepl(tf, co)])
     			co <- co[, idx] 
   		}
-	
-			
+		
 		#Prepare Data for functional CCA
 			
 		#x <- list()             # list to store output of cca.fd
@@ -78,7 +66,6 @@ fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c()
 		S <- rep(0, ncol(co) )  		# weighted sums
 		x <- lapply(seq(from=1, to=ncol(co), by=1)  , function(x) NA) #x <- list()    # list to store output of cca.fd
 
-			
 		for (i in seq(from=1, to=ncol(co), by=1)  ) {
 			print(paste(c("Performing fCCA in pair...",i,"/",ncol(co)) ,collapse="") )
 		
@@ -92,7 +79,6 @@ fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c()
 		}
 		#NCAN calculated in 'cca.fd' is always the number of splines
 		#plot.cca.fd(x)
-
 
 		for (i in seq(from=1, to=ncol(co), by=1)  ) {
 	
@@ -112,7 +98,6 @@ fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c()
 			rm(posit, file1, file2)
 
 		}
-
 
 		# if ( is.null(bar) == TRUE ) {bar <- ncol(co) }  ##barplot(100* S/Ma, ylim= c(0,100)  )
 
@@ -186,4 +171,3 @@ fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c()
 		
 }
 
-	

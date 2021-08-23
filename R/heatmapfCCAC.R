@@ -1,5 +1,4 @@
 heatmapfCCAC <- function(fc){
-  
 #  M <- c() #store sample names
 #  for (i in seq(from=1, to=length(fc$samples), by=1)    ){
 #    M <- c(M, strsplit( as.character(fc$samples[i]), split="_vs_")[[1]] )
@@ -10,8 +9,8 @@ heatmapfCCAC <- function(fc){
   k <- 0
   for (i in seq(from=1, to=length(fc$samples), by=1)    ){
     temp_names <- strsplit( as.character(fc$samples[i]), split="_vs_")[[1]] 
-    k<- k +1 ; M[k] <- temp_names[1]
-    k<- k +1 ; M[k] <- temp_names[2]
+    k <- k +1 ; M[k] <- temp_names[1]
+    k <- k +1 ; M[k] <- temp_names[2]
   }
   M <- unique(M)
   rm(k)
