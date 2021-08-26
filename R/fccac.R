@@ -132,18 +132,14 @@ fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c()
 		ggData3 <- merge(x=ggData2, y=ggData, by='pair',  sort = FALSE)
 		#ggData3 <- ggData3[sort(ggData3$S, index.return=T, decreasing=T)[[2]],]
 		#head (ggData3 ) 
-		
 		ggDataTXT <- ggData3
 			
-		
 		INB = is.null(bar)
 		if ( INB == TRUE ) {   bar <- ncol(co); CHOSEN <- seq(from=1, to=bar, by=1)  ;  ggData3 <- ggData3[CHOSEN,]  }
 		if ( INB != TRUE ) {  CHOSEN<-c(seq(from=1, to=bar[1], by=1),  (length(ggData3$CL)-bar[2]+1):length(ggData3$CL)); ggData3 <- ggData3[  CHOSEN , ]	}
 		
 		p2 <-  ggplot(ggData3, aes(x = reorder(factor(pair),S), y = S)) + geom_bar(stat = "identity",width=.6, fill=reorder(rev(as.character(ggData3$CL)) ,ggData3$S) )+ coord_flip() + ylim(0,100)  + theme_bw() + theme(panel.border = element_rect( colour = "black")) +  theme(legend.position='none', text = element_text(size=10)   )  + ylab("F(%)") + xlab("") + geom_hline(yintercept = 100, colour="red", linetype = "longdash")
 		
-
-
 
 		colnames(ggDataTXT) <- c("samples","F","squ_can_corr_k_1","k","squ_can_corr_k_1","color"  )
 		fccac_out <- ggDataTXT[,c(1,2,3,4,6)]
@@ -153,21 +149,14 @@ fccac <- function(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c()
 			pdf("fCCAC.pdf", height=6, width=3.5)	
 			multiplot(p1, p2, cols=1)
 			dev.off()
-		
 			print("Saving fCCAC.txt...")
 			write.table(x=fccac_out , file = "fCCAC.txt", append = FALSE, quote = FALSE, sep = "\t", row.names = FALSE, col.names = TRUE)
-	
 			print("Done...")
 		}
 
 		if (outFiles == FALSE){
 			multiplot(p1, p2, cols=1)
 		}		
-	
-			
 		return( fccac_out )
-	
-	}
-		
+	}	
 }
-

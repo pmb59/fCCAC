@@ -30,5 +30,4 @@ heatmapfCCAC <- function(fc){
   rownames(Fv) <- M
 
   Heatmap(Fv, name='F (%)')
-
 }

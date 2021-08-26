@@ -5,8 +5,7 @@
 \description{ functional Canonical Correlation Analysis to evaluate Covariance between nucleic acid sequencing datasets. }
 
 \usage{
-fccac(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c(), main="", 
-bar=NULL, outFiles=FALSE )
+  fccac(peaks, bigwigs, labels, splines=10, nbins=100, ncan=5 , tf=c(), main="", bar=NULL, outFiles=FALSE )
 }
 
 \arguments{
@@ -20,45 +19,41 @@ bar=NULL, outFiles=FALSE )
   \item{main}{ Title of the plot generated (default: no title) }
   \item{bar}{ In the barplot, plot only first bar[1] and last bar[2] interactions after ranking by F-value (default: NULL, plots all the combinations).  }
   \item{outFiles}{If TRUE, the function writes two files in the working directory, fCCAC.pdf and fCCAC.txt (tabulated text-file with results). (default: FALSE) }
-  
 }
 
 \details{ Detailed information about the methodology can be found in Madrigal (2016).}
 
 \value{ The function reports a dataframe with the following columns: pairwise samples, F value, k (order of the first canonical correlation), and value of the first canonical correlation. }
   
-
-
-
 \references{ Madrigal P (2016) fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets. Bioinformatics: http://doi.org/10.1093/bioinformatics/btw724.  }
 
-\author{ Pedro Madrigal, \email{dnaseiseq@gmail.com} }
+\author{ Pedro Madrigal, \email{pmadrigal@ebi.ac.uk} }
 
 \seealso{ \code{\link{fCCAC-package}} }
 
 \examples{
 
-## hg19. chr21:40000000-48129895 H3K4me3 data from Bertero et al. (2015)
-if (.Platform$OS.type == "unix") {
+  ## hg19. chr21:40000000-48129895 H3K4me3 data from Bertero et al. (2015)
+  if (.Platform$OS.type == "unix") {
   
-owd <- setwd(tempdir())
+    owd <- setwd(tempdir())
 
-bigwig1 <- "chr21_H3K4me3_1.bw"
-bigwig2 <- "chr21_H3K4me3_2.bw"
-bigwig3 <- "chr21_H3K4me3_3.bw"
-peakFile <- "chr21_merged_ACT_K4.bed"
-labels <- c( "H3K4me3", "H3K4me3","H3K4me3" )
+    bigwig1 <- "chr21_H3K4me3_1.bw"
+    bigwig2 <- "chr21_H3K4me3_2.bw"
+    bigwig3 <- "chr21_H3K4me3_3.bw"
+    peakFile <- "chr21_merged_ACT_K4.bed"
+    labels <- c( "H3K4me3", "H3K4me3","H3K4me3" )
 
-r1 <- system.file("extdata", bigwig1,  package="fCCAC",mustWork = TRUE)
-r2 <- system.file("extdata", bigwig2,  package="fCCAC",mustWork = TRUE)
-r3 <- system.file("extdata", bigwig3,  package="fCCAC",mustWork = TRUE)
-r4 <- system.file("extdata", peakFile, package="fCCAC",mustWork = TRUE)
-ti <- "H3K4me3 peaks"
+    r1 <- system.file("extdata", bigwig1,  package="fCCAC",mustWork = TRUE)
+    r2 <- system.file("extdata", bigwig2,  package="fCCAC",mustWork = TRUE)
+    r3 <- system.file("extdata", bigwig3,  package="fCCAC",mustWork = TRUE)
+    r4 <- system.file("extdata", peakFile, package="fCCAC",mustWork = TRUE)
+    ti <- "H3K4me3 peaks"
 
-fc <- fccac(bar=NULL, main=ti, peaks=r4, bigwigs=c(r1,r2,r3), labels=labels, splines=15, nbins=100, ncan=15) 
+    fc <- fccac(bar=NULL, main=ti, peaks=r4, bigwigs=c(r1,r2,r3), labels=labels, splines=15, nbins=100, ncan=15) 
 
-head(fc)
+    head(fc)
 
-setwd(owd)
-}
+    setwd(owd)
+  }
 }

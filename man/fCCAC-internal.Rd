@@ -4,7 +4,6 @@
 
 \alias{multiplot}
 
-
 \keyword{internal}
 
 \examples{
@@ -15,6 +14,5 @@ library(ggplot2)
 p1 <- ggplot(ChickWeight, aes(x=Time, y=weight, colour=Diet, group=Chick)) + geom_line() + ggtitle("Growth curve for individual chicks")
 
 multiplot(p1, p1, cols=1)
-  
 
 }

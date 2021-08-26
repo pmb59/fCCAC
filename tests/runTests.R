@@ -1,2 +1,2 @@
-require("fCCAC") || stop("unable to load fCCAC")
+require("fCCAC") || stop("Unable to load fCCAC")
 BiocGenerics:::testPackage("fCCAC")
