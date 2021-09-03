@@ -43,7 +43,7 @@ Detailed information about the statistical methodology can be found in Madrigal 
 Data used in the example correspond to H3K4me3 triplicates (wild-type H9-hESCs) downloaded from ArrayExpress (E-ERAD-191) and processed as in (Bertero et al., 2015). Aggregate sets of reproducible peaks from Bertero et al. were considered as genomic regions of interest in the analysis.  Region 40000000-48129895 in chromosome 21 was selected for the illustrative example shown in this vignette.
 
 \begin{small}
-<<fCCACexample, fig=TRUE>>=
+<<fCCACexample, fig=FALSE, include=TRUE, fig.width=1, fig.height=3>>=
 options(width=60);
 if (.Platform$OS.type == "windows") { print("...rtracklayer is unable to read bigWig format files in Windows...") }
 
@@ -81,7 +81,7 @@ Finally, if all pairwise comparisons have been computed ('tf=c()' by default),
 we can plot a heatmap of F values:
 
 \begin{small}
-<<heatmapPlot, fig=TRUE>>=
+<<heatmapPlot, fig=FALSE, include=TRUE, fig.width=1, fig.height=1.5>>=
 options(width=60)
 if (.Platform$OS.type == "windows") { print("...rtracklayer is unable to read bigWig format files in Windows...") }
 
