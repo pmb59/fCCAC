@@ -14,7 +14,7 @@ Depends: R (>= 3.3.0), S4Vectors, IRanges, GenomicRanges, grid
 Maintainer: Pedro Madrigal <pmadrigal@ebi.ac.uk>
 Imports: fda, RColorBrewer, genomation, ggplot2, ComplexHeatmap,
         grDevices, stats, utils
-Suggests: RUnit, BiocGenerics, BiocStyle
+Suggests: RUnit, BiocGenerics, BiocStyle, knitr, rmarkdown
 License: Artistic-2.0
 LazyLoad: yes
 LazyData: yes
