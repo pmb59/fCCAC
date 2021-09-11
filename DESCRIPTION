@@ -18,4 +18,4 @@ Suggests: RUnit, BiocGenerics, BiocStyle, knitr, rmarkdown
 License: Artistic-2.0
 LazyLoad: yes
 LazyData: yes
-biocViews: Transcription, Genetics, Sequencing, Coverage
+biocViews: Transcription, Genetics, Sequencing, Coverage, ChIPSeq
