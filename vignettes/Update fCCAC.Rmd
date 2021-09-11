@@ -9,7 +9,7 @@ output:
     toc_depth: 4
     fig_caption: true
 date: "`r BiocStyle::doc_date()`"
-package: "`r BiocStyle::pkg_ver('ChIPpeakAnno')`"
+package: "`r BiocStyle::pkg_ver('fCCAC')`"
 bibliography: bibliography.bib
 csl: nature.csl
 abstract: >
