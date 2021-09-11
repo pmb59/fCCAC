@@ -1,0 +1,47 @@
+---
+title: "fCCAC's user's guide"
+author: "Pedro Madrigal"
+output:
+  html_document:
+    theme: simplex
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    fig_caption: true
+date: "`r BiocStyle::doc_date()`"
+package: "`r BiocStyle::pkg_ver('ChIPpeakAnno')`"
+bibliography: bibliography.bib
+csl: nature.csl
+abstract: >
+  The package ...
+vignette: >
+  %\VignetteIndexEntry{fCCAC Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r, echo=FALSE, results="hide", warning=FALSE}
+suppressPackageStartupMessages({
+    library(fCCAC)
+})
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+
+# Introduction
+
+abc
+
+
+# Citing ChIPpeakAnno
+Please cite `fCCAC` in your publication as follows:
+```{r citation, echo=FALSE}
+citation(package="fCCAC")
+```
+
+
+# Session Info
+```{r sessionInfo}
+sessionInfo()
+```
+# References
+
+
