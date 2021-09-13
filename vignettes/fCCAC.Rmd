@@ -15,7 +15,7 @@ csl: nature.csl
 abstract: >
   The package ...
 vignette: >
-  %\VignetteIndexEntry{fCCAC Vignette}
+  %\VignetteIndexEntry{fCCAC Quick Start}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
