@@ -1,9 +1,13 @@
 citEntry(entry="article",
          title = "fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets",
          author = personList(as.person("Pedro Madrigal")),
-         year = "2016",
+         year = "2017",
+         volume="33",
+         number="5",
+         pages="746-748",
+         PubMedID="27993776",
          journal = "Bioinformatics",
          doi = "10.1093/bioinformatics/btw724",
          url = "http://doi.org/10.1093/bioinformatics/btw724",
          textVersion = 
-         paste("Pedro Madrigal (2016):", "fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets.", "Bioinformatics" ) )
+         paste("Pedro Madrigal", "fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets.", "Bioinformatics 2017, 33:746-748" ) )
