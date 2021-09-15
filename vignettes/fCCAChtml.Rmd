@@ -2,14 +2,11 @@
 title: "fCCAC's user's guide"
 author: "Pedro Madrigal"
 output:
-  html_document:
-    theme: simplex
-    toc: true
+  BiocStyle::html_document:
     toc_float: true
-    toc_depth: 4
-    fig_caption: true
+  BiocStyle::pdf_document: default
 date: "`r BiocStyle::doc_date()`"
-package: "`r BiocStyle::pkg_ver('fCCAC')`"
+package: BiocStyle
 bibliography: bibliography.bib
 csl: nature.csl
 abstract: >
@@ -19,6 +16,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
 ```{r, echo=FALSE, results="hide", warning=FALSE}
 suppressPackageStartupMessages({
     library(fCCAC)
