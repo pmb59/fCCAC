@@ -3,7 +3,6 @@ title: "fCCAC's user's guide"
 author: "Pedro Madrigal"
 output: html_document
 date: "`r Sys.Date()`"
-package: BiocStyle
 bibliography: bibliography.bib
 csl: nature.csl
 abstract: >
