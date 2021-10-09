@@ -1,11 +1,8 @@
 ---
 title: "fCCAC's user's guide"
 author: "Pedro Madrigal"
-output:
-  BiocStyle::html_document:
-    toc_float: true
-  BiocStyle::pdf_document: default
-date: "`r BiocStyle::doc_date()`"
+output: html_document
+date: "`r Sys.Date()`"
 package: BiocStyle
 bibliography: bibliography.bib
 csl: nature.csl
