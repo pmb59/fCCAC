@@ -3,14 +3,9 @@ title: "fCCAC's user's guide"
 author: "Pedro Madrigal"
 output: html_document
 date: "`r Sys.Date()`"
-bibliography: bibliography.bib
-csl: nature.csl
-abstract: >
-  The package ...
 vignette: >
   %\VignetteIndexEntry{fCCAC Quick Start}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, echo=FALSE, results="hide", warning=FALSE}
