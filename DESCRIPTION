@@ -1,5 +1,5 @@
 Package: fCCAC
-Version: 1.19.10
+Version: 1.19.11
 Date: 2021-10-08
 Type: Package
 Title: functional Canonical Correlation Analysis to evaluate Covariance
@@ -24,4 +24,4 @@ Suggests: RUnit, BiocGenerics, BiocStyle, knitr, rmarkdown
 License: Artistic-2.0
 LazyLoad: yes
 LazyData: yes
-biocViews: Transcription, Genetics, Sequencing, Coverage, ChIPSeq
+biocViews: Epigenetics, Transcription, Sequencing, Coverage, ChIPSeq, FunctionalGenomics
