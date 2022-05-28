@@ -1,6 +1,6 @@
 Package: fCCAC
-Version: 1.19.11
-Date: 2021-10-08
+Version: 1.23.1
+Date: 2022-05-28
 Type: Package
 Title: functional Canonical Correlation Analysis to evaluate Covariance
         between nucleic acid sequencing datasets
@@ -12,16 +12,22 @@ Authors@R:
            comment = c(ORCID = "0000-0003-1959-8199")
       )
     )
-Description: An application of functional Canonical Correlation
+Description: Computational evaluation of variability across DNA or RNA 
+        sequencing datasets is a crucial step in genomics, as it allows 
+        both to evaluate reproducibility of replicates, 
+        and to compare different datasets to identify potential 
+        correlations. fCCAC applies functional Canonical Correlation
         Analysis to allow the assessment of: (i) reproducibility 
         of biological or technical replicates, analyzing their shared 
         covariance in higher order components; and (ii) the associations 
-        between different datasets. 
-Depends: R (>= 3.3.0), S4Vectors, IRanges, GenomicRanges, grid
+        between different datasets. fCCAC represents a more sophisticated 
+        approach that complements Pearson correlation of genomic coverage. 
+Depends: R (>= 4.2.0), S4Vectors, IRanges, GenomicRanges, grid
 Imports: fda, RColorBrewer, genomation, ggplot2, ComplexHeatmap,
         grDevices, stats, utils
 Suggests: RUnit, BiocGenerics, BiocStyle, knitr, rmarkdown
 License: Artistic-2.0
 LazyLoad: yes
 LazyData: yes
-biocViews: Epigenetics, Transcription, Sequencing, Coverage, ChIPSeq, FunctionalGenomics
+biocViews: Epigenetics, Transcription, Sequencing, Coverage, ChIPSeq, 
+        FunctionalGenomics, RNASeq, ATACSeq, MNaseSeq
