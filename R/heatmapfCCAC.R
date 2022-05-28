@@ -9,7 +9,7 @@ heatmapfCCAC <- function(fc){
    }
    M <- unique(M)
   
-   #plot heatmap
+   # plot heatmap
    Fv <- matrix(NA, nrow=length(M), ncol=length(M))
    for (i in seq(from=1, to=length(M), by=1)  ){
       for (j in seq(from=1, to=length(M), by=1) ){
