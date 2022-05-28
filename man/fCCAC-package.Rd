@@ -10,8 +10,8 @@
 \tabular{ll}{
     Package: \tab fCCAC\cr
     Type: \tab Package\cr
-    Version: \tab 1.19.3\cr
-    Date: \tab 2021-08-25\cr
+    Version: \tab 1.23.1\cr
+    Date: \tab 2022-05-28\cr
     License: \tab Artistic-2.0\cr 
     LazyLoad: \tab yes\cr
     }
@@ -22,7 +22,7 @@
 
     Maintainer: Pedro Madrigal \email{pmadrigal@ebi.ac.uk}
 }
-\references{ Madrigal P (2016) fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets. Bioinformatics: http://doi.org/10.1093/bioinformatics/btw724.  }
+\references{ Madrigal P (2017) fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets. Bioinformatics: http://doi.org/10.1093/bioinformatics/btw724.  }
 
 \examples{
 
