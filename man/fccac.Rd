@@ -9,9 +9,9 @@
 }
 
 \arguments{
-  \item{peaks}{ BED file. Column 1: chr, Column 2: start, Column 3: end (REQUIRED). }
-  \item{bigwigs}{ A vector of characters containing the path to bigwigs files. Replicates of the same samples should be entered consecutive one another (REQUIRED).  }
-  \item{labels}{ IDs for each sample. Replicates should have the same label and be ordered (vector of characters, REQUIRED) }
+  \item{peaks}{ BED file. Column 1: chr, Column 2: start, Column 3: end (Required). }
+  \item{bigwigs}{ A vector of characters containing the path to bigwigs files. Replicates of the same samples should be entered consecutive one another (Required).  }
+  \item{labels}{ IDs for each sample. Replicates should have the same label and be ordered (vector of characters, Required) }
   \item{splines}{ Number of cubic B-splines used to smooth the data and to estimate the canonical variate weight functions (default: 15) }
   \item{nbins}{ Integer value representing the number of bins that should be used for each window (default: 100) }
   \item{ncan}{ Number of canonical components to report in the results. It cannot be higher than number of splines or the number of peaks (default: 15) }
@@ -55,5 +55,6 @@
     head(fc)
 
     setwd(owd)
+
   }
 }
