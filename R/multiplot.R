@@ -37,7 +37,7 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
     pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
 
     # Make each plot, in the correct location
-    for (i in seq(from=1, to=numPlots, by=1)  ) {     #1:numPlots  
+    for (i in seq(from=1, to=numPlots, by=1)  ) {
       # Get the i,j matrix positions of the regions that contain this subplot
       matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
       print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row, layout.pos.col = matchidx$col))
