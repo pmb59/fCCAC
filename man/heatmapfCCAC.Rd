@@ -14,7 +14,7 @@
 
 \value{ Plots a Heatmap of F values using the package 'ComplexHeatmap'. }
   
-\references{ Madrigal P (2016) fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets. Bioinformatics: http://doi.org/10.1093/bioinformatics/btw724.  }
+\references{ Madrigal P (2017) fCCAC: functional canonical correlation analysis to evaluate covariance between nucleic acid sequencing datasets. Bioinformatics: http://doi.org/10.1093/bioinformatics/btw724.  }
 
 \author{ Pedro Madrigal, \email{pmadrigal@ebi.ac.uk} }
 
@@ -46,6 +46,6 @@
     heatmapfCCAC(fc)
 
     setwd(owd)
-
+    
   }
 }
